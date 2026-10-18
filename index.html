@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0A">
+<meta name="description" content="Koncept dizajna sajta za Enterijer Markdom, Šid: kuhinje, plakari, kancelarije i TV komode po meri.">
+<title>Enterijer Markdom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0B0B0A}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;overflow-x:hidden}
+.mk{--ink:#F2ECDF;--muted:#B5AC9C;--line:#2F2A21;--bg:#0B0B0A;--paper:#131312;--ph:#191918;--dark:#0B0B0A;color-scheme:dark;background:radial-gradient(70rem 40rem at 12% 22%,rgba(255,255,255,.028),transparent 70%),radial-gradient(60rem 50rem at 88% 55%,rgba(255,255,255,.022),transparent 70%),radial-gradient(70rem 40rem at 20% 88%,rgba(255,255,255,.02),transparent 70%),var(--bg);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:1rem;line-height:1.65;overflow-x:clip;min-width:0}
+.mk *{box-sizing:border-box}
+.mk h1,.mk h2,.mk h3{font-family:'Cinzel',Georgia,serif;margin:0;line-height:1.14;letter-spacing:.01em;overflow-wrap:break-word;color:var(--ink)}
+.mk h1{font-size:clamp(3rem,10.5vw,4.75rem);font-weight:700}
+.mk h2{font-size:clamp(2.25rem,8vw,3.5rem);font-weight:700}
+.mk h3{font-size:1.25rem;font-weight:600}
+.mk p{margin:0;max-width:65ch}
+.mk a{color:var(--acc)}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding-inline:max(1rem,env(safe-area-inset-left))}
+.sec{padding-block:4rem}
+.eyebrow{display:flex;align-items:center;gap:.625rem;font-family:'Cinzel',Georgia,serif;font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-style:italic}
+.orn{display:block;margin-bottom:1rem}
+.seb{margin-bottom:1rem}
+.lead{color:var(--muted);font-size:1.0625rem}
+.iglink{display:inline-flex;align-items:center;gap:.25rem;padding-block:.5rem;color:var(--acc) !important;font-weight:600;text-decoration:none;white-space:nowrap;text-underline-offset:3px}
+.pm{font-family:'IBM Plex Sans',monospace;font-size:.8125rem;font-weight:600;color:var(--acc);letter-spacing:.02em;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.75rem 1.375rem;border-radius:4px;border:1px solid var(--acc);background:var(--acc);color:var(--dark) !important;font-weight:600;font-size:1rem;letter-spacing:.01em;text-decoration:none;touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform 100ms ease-out}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink) !important;border-color:var(--acc)}
+.ph{background:var(--ph);border:1px solid var(--line);border-radius:4px;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9C9384}
+.notice{background:transparent;color:var(--muted);font-size:.8125rem;padding-block:.625rem;border-bottom:0}
+.top{position:relative;z-index:3;background:transparent;border-bottom:0}
+.topin{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.5rem}
+.logo{display:flex;align-items:center;gap:.625rem;text-decoration:none;color:var(--ink) !important;min-height:3rem}
+.logo .wm{display:flex;flex-direction:column;align-items:center;line-height:1;font-family:'Cinzel',Georgia,serif;color:var(--acc)}
+.logo .wm small{font-size:.5625rem;letter-spacing:.32em;font-weight:600}
+.logo .wm b{font-size:1.25rem;font-weight:700;letter-spacing:.06em;padding-block:.2rem;border-top:1px solid var(--acc);border-bottom:1px solid var(--acc);margin-block:.2rem}
+.logo .wm i{font-style:normal;font-size:.5rem;letter-spacing:.2em;font-weight:600}
+.nav{display:none;gap:1.75rem}
+.nav a{color:var(--ink);text-decoration:none;font-weight:500;padding-block:.75rem}
+.dd{position:relative}
+.ddt{display:inline-flex;align-items:center;gap:.375rem;min-height:3rem}
+.chev{transition:transform 160ms ease-out}
+.menu{position:absolute;top:100%;left:-.75rem;min-width:11rem;display:none;flex-direction:column;padding:.375rem;background:#141210;border:1px solid var(--line);border-radius:4px;z-index:10}
+.menu a{display:flex;align-items:center;min-height:2.75rem;padding:.5rem .75rem;border-radius:4px;white-space:nowrap}
+.dd:focus-within .menu{display:flex}
+.dd:focus-within .chev{transform:rotate(180deg)}
+.tel{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;min-width:3rem;padding-inline:.75rem;color:var(--ink) !important;font-weight:600;text-decoration:none;border:1px solid var(--line);border-radius:4px;touch-action:manipulation}
+.tel .num{display:none}
+.hero{position:relative;overflow:hidden;isolation:isolate;margin-top:-4.5rem;padding-block:9.5rem 9rem;background:transparent}
+.herobg{position:absolute;top:0;left:calc(50% - 22.5rem);width:118.75rem;max-width:none;height:auto;z-index:-2}
+.scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,11,10,.65) 0,rgba(11,11,10,.3) 9rem,rgba(11,11,10,.3) 75%,#0B0B0A 100%)}
+.herotext{display:flex;flex-direction:column;gap:1.25rem;align-items:flex-start;text-align:left;max-width:36rem;margin-inline:0}
+.herotext .lead{color:#D9D1C2}
+.herotext .eyebrow{margin-bottom:-.75rem}
+.cta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:.75rem}
+.plgrid{display:grid;gap:2.5rem}
+.sheet{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1rem}
+.sheet svg{display:block;width:100%;height:auto}
+.sheethead{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8125rem;font-weight:600;color:var(--muted);margin-bottom:.75rem;letter-spacing:.04em}
+.sheet figcaption{margin-top:.875rem;font-size:.875rem;color:var(--muted);display:flex;flex-direction:column;gap:.5rem}
+.legend{display:flex;align-items:center;gap:.5rem}
+.grid4{display:grid;gap:2rem;margin-top:2.5rem}
+.card{display:flex;flex-direction:column;gap:.75rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.card .ph{aspect-ratio:4/3}
+.card p{color:var(--muted)}
+.card a{font-weight:600;text-decoration:none;min-height:3rem;display:inline-flex;align-items:center;gap:.375rem}
+.mat{display:grid;gap:1.5rem;margin-top:2.5rem}
+.matbox{border:1px solid var(--line);border-radius:4px;background:var(--paper);padding:1.5rem;display:flex;flex-direction:column;gap:.875rem}
+.matbox p{color:var(--muted)}
+.matbox svg{width:100%;max-width:16rem;height:auto}
+.note{margin-top:1.5rem;border:1px dashed #4A4336;border-radius:4px;padding:1rem 1.25rem;color:var(--muted);font-size:.9375rem}
+.steps{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:1rem;padding-block:1.25rem;border-top:1px solid var(--line)}
+.steps .n{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:1.75rem;color:var(--acc);line-height:1}
+.steps p{color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:9rem;grid-auto-flow:dense;gap:.75rem;margin-top:2.5rem}
+.gallery .ph{font-size:.6875rem}
+.gallery .ph:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery .ph:nth-child(3){grid-row:span 2}
+.gallery .ph:nth-child(5),.gallery .ph:nth-child(6){grid-column:span 2}
+.faq{margin-top:2rem;display:grid;grid-template-columns:minmax(0,1fr);gap:0 4rem;align-items:start}
+.faqcol{min-width:0;border-bottom:1px solid var(--line)}
+.faqcol:first-child{border-bottom:0}
+.faqend{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.25rem 1rem;min-height:3.5rem;padding-block:.5rem;border-top:1px solid var(--line);font-weight:600;font-size:1.0625rem}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:3.5rem;padding-block:1rem;font-weight:600;font-size:1.0625rem;touch-action:manipulation}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{flex:none;transition:transform 160ms ease-out}
+.faq details[open] summary svg{transform:rotate(45deg)}
+.faq details p{padding-bottom:1.25rem;color:var(--muted)}
+.contact{display:grid;gap:3rem;margin-top:2.5rem}
+.form{display:grid;gap:1.125rem}
+.field{display:flex;flex-direction:column;gap:.375rem}
+.field label{font-weight:600;font-size:.9375rem}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid #4A4336;border-radius:4px;min-height:3rem;padding:.75rem .875rem;width:100%}
+.field textarea{min-height:8rem;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+.hint{font-size:.8125rem;color:var(--muted)}
+.info{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:2.25rem minmax(0,1fr);gap:.75rem;padding-block:1rem;border-bottom:1px solid var(--line)}
+.row span{display:block;font-size:.8125rem;color:var(--muted)}
+.row a,.row b{font-weight:600;color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
+.map{aspect-ratio:16/10;margin-top:1.5rem}
+.upit{display:grid;gap:2.5rem}
+.upit-info{display:flex;flex-direction:column;gap:1.25rem}
+.upit-info .orn{margin-bottom:0}
+.bigtel{display:flex;flex-direction:column;gap:.375rem;padding-block:1.25rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink) !important;font-family:'Cinzel',Georgia,serif;font-size:clamp(1.75rem,6vw,2.25rem);font-weight:700;letter-spacing:.02em;line-height:1.1;touch-action:manipulation}
+.bigtel span{font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.clist{list-style:none;margin:0;padding:0;display:grid;gap:1.125rem}
+.clist li{display:grid;grid-template-columns:1.5rem minmax(0,1fr);gap:.875rem;align-items:start}
+.clist span{display:block;font-size:.8125rem;color:var(--muted)}
+.clist a,.clist b{color:var(--ink);font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.upit-form{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1.5rem 1.25rem;display:grid;gap:1.125rem;margin:0}
+.upit-form .field input,.upit-form .field select,.upit-form .field textarea{background:var(--bg)}
+.upit-form .field label{font-size:.875rem;font-weight:500;color:var(--muted)}
+.selwrap{position:relative}
+.selwrap select{-webkit-appearance:none;appearance:none;padding-right:2.75rem;cursor:pointer}
+.selwrap svg{position:absolute;right:1rem;top:50%;transform:translateY(-50%);pointer-events:none}
+.upit-form .btn{width:100%}
+.upit-form .two{display:grid;gap:1.125rem}
+.foot{background:transparent;color:var(--muted);padding-block:3rem 6.5rem;font-size:.875rem;border-top:0}
+.foot b{color:var(--acc);font-family:'Cinzel',Georgia,serif;font-size:1.125rem;letter-spacing:.04em}
+.foot a{color:var(--ink)}
+.footgrid{display:grid;gap:1.5rem}
+.foottop{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--line)}
+.footlead{color:var(--muted);max-width:40ch}
+.footcols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.25rem 1.5rem;padding-block:2.5rem}
+.fh{font-family:'Cinzel',Georgia,serif;font-style:italic;font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin:0 0 .5rem}
+.footcols ul{list-style:none;margin:0;padding:0;display:grid}
+.footcols a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem;overflow-wrap:anywhere}
+.footcols p{color:var(--muted);line-height:1.7;margin-bottom:.75rem}
+.footbottom{display:flex;flex-direction:column;gap:.75rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.8125rem;color:var(--muted)}
+.totop{display:inline-flex;align-items:center;gap:.25rem;color:var(--ink) !important;text-decoration:none;min-height:2.75rem}
+.bar{position:sticky;bottom:0;z-index:5;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;padding:.625rem max(1rem,env(safe-area-inset-left)) calc(.625rem + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}
+.bar .btn{width:100%;padding-inline:.75rem}
+@media (hover:hover) and (pointer:fine){
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost:hover{background:var(--acc);color:var(--dark) !important;filter:none}
+.nav a:hover{color:var(--acc)}
+.footcols a:hover,.totop:hover{color:var(--acc) !important}
+.dd:hover .menu{display:flex}
+.dd:hover .chev{transform:rotate(180deg)}
+.menu a:hover{background:#221F19}
+.card a:hover{text-decoration:underline}
+.iglink:hover{text-decoration:underline}
+.tel:hover{border-color:var(--acc)}
+}
+@media (min-width:768px){
+.wrap{padding-inline:2rem}
+.faq{grid-template-columns:repeat(2,minmax(0,1fr))}
+.faqcol:first-child{border-bottom:1px solid var(--line)}
+.sec{padding-block:6rem}
+.nav{display:flex}
+.tel .num{display:inline}
+.hero{padding-block:7.5rem 9rem;min-height:46rem;display:flex;flex-direction:column;justify-content:flex-end}
+.herobg{left:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
+.scrim{background:linear-gradient(180deg,rgba(11,11,10,.7) 0,rgba(11,11,10,0) 8rem),linear-gradient(0deg,#0B0B0A 0,rgba(11,11,10,0) 9rem),linear-gradient(90deg,rgba(11,11,10,.55) 0,rgba(11,11,10,.25) 60%,rgba(11,11,10,.15) 100%)}
+.mk .herotext{max-width:44rem}
+.mk .herotext h1{margin-bottom:-1.25rem}
+.plgrid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center;gap:3.5rem}
+.mk .lead{font-size:1.125rem}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}
+.mat{grid-template-columns:repeat(3,minmax(0,1fr))}
+.steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}
+.steps li{grid-template-columns:minmax(0,1fr);gap:.75rem}
+.gallery{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:11rem;gap:1rem}
+.contact{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:4rem}
+.form .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.125rem}
+.footgrid{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+.upit{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:4.5rem;align-items:stretch}
+.upit-form{padding:2rem;display:flex;flex-direction:column}
+.upit-form .grow{flex:1}
+.upit-form .grow textarea{flex:1}
+.upit-form .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.foot{padding-block:4rem 3rem}
+.foottop{flex-direction:row;align-items:center;justify-content:space-between;gap:2.5rem}
+.footcols{grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem;padding-block:3rem}
+.footbottom{flex-direction:row;justify-content:space-between;align-items:center;gap:2rem}
+.bar{display:none}
+.sechead{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:3.5rem;align-items:end}
+}
+/* Animacije: jedan stil (fade + podizanje), kratko, bez blokiranja čitanja */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes menuin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.btn{transition:transform 100ms ease-out,filter 160ms ease-out,background-color 160ms ease-out,color 160ms ease-out}
+.nav a,.menu a,.tel,.iglink,.footcols a,.totop,.card a{transition:color 150ms ease-out,border-color 150ms ease-out,background-color 150ms ease-out}
+.iglink svg,.btn.ghost svg{transition:transform 160ms ease-out}
+.field input,.field select,.field textarea{transition:border-color 150ms ease-out}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--acc)}
+@media (hover:hover) and (pointer:fine){
+.iglink:hover svg,.btn.ghost:hover svg{transform:translate(2px,-2px)}
+}
+@media (prefers-reduced-motion:no-preference){
+.dd:focus-within .menu,.dd:hover .menu{animation:menuin 150ms ease-out}
+.faq details[open] p{animation:fadein 240ms ease-out}
+.herotext>*{animation:rise 560ms cubic-bezier(.2,.7,.2,1) both}
+.herotext>:nth-child(2){animation-delay:70ms}
+.herotext>:nth-child(3){animation-delay:140ms}
+.herotext>:nth-child(4){animation-delay:210ms}
+@supports (interpolate-size:allow-keywords){
+.faq details{interpolate-size:allow-keywords}
+.faq details::details-content{block-size:0;overflow:clip;transition:block-size 240ms ease,content-visibility 240ms allow-discrete}
+.faq details[open]::details-content{block-size:auto}
+}
+@supports (animation-timeline:view()){
+.sec>.wrap{animation:rise linear both;animation-timeline:view();animation-range:entry 0px entry 200px}
+}
+}
+@media (prefers-reduced-motion:reduce){
+.mk *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="mk" style="--acc: #C9A45C">
+
+<div class="notice"><div class="wrap">Koncept dizajna za Enterijer Markdom. Ovo nije zvanični sajt firme. Sve sa oznakom [PRIMER] proveravamo sa vlasnikom.</div></div>
+
+<header class="top">
+<div class="wrap topin">
+<a class="logo" href="#vrh" aria-label="Enterijer Markdom, nameštaj po meri, na vrh">
+<svg width="40" height="44" viewBox="0 0 40 44" aria-hidden="true">
+<path d="M20 2 37 11.5v21L20 42 3 32.5v-21Z" fill="none" style="stroke: var(--acc)" stroke-width="1.6"></path>
+<path d="M20 6 33.5 13.5v17L20 38 6.5 30.5v-17Z" fill="none" style="stroke: var(--acc)" stroke-width=".8"></path>
+<text x="20" y="27" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="14" font-weight="700" style="fill: var(--acc)">EM</text>
+</svg>
+<span class="wm"><small>ENTERIJER</small><b>MARKDOM</b><i>NAMEŠTAJ PO MERI</i></span>
+</a>
+<nav class="nav" aria-label="Glavni meni">
+<div class="dd">
+<a class="ddt" href="#pravimo" aria-haspopup="true">Nameštaj <svg class="chev" width="12" height="12" viewBox="0 0 12 12" fill="none" style="stroke: var(--acc)" stroke-width="1.6" aria-hidden="true"><path d="m3 4.5 3 3 3-3"></path></svg></a>
+<div class="menu">
+<a href="#pravimo">Šta pravimo</a>
+<a href="#radovi">Radovi</a>
+</div>
+</div>
+<div class="dd">
+<a class="ddt" href="#ploca" aria-haspopup="true">Postupak <svg class="chev" width="12" height="12" viewBox="0 0 12 12" fill="none" style="stroke: var(--acc)" stroke-width="1.6" aria-hidden="true"><path d="m3 4.5 3 3 3-3"></path></svg></a>
+<div class="menu">
+<a href="#ploca">Krojna lista</a>
+<a href="#pitanja">Pitanja</a>
+</div>
+</div>
+<div class="dd">
+<a class="ddt" href="#upit" aria-haspopup="true">Kontakt <svg class="chev" width="12" height="12" viewBox="0 0 12 12" fill="none" style="stroke: var(--acc)" stroke-width="1.6" aria-hidden="true"><path d="m3 4.5 3 3 3-3"></path></svg></a>
+<div class="menu">
+<a href="#upit">Upit</a>
+<a href="https://www.instagram.com/enterijer_markdom/">Instagram</a>
+</div>
+</div>
+</nav>
+
+<a class="tel" href="tel:+381604854680" aria-label="Pozovite 060 485 4680">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="stroke: var(--acc)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"></path></svg>
+<span class="num">060 485 4680</span>
+</a>
+</div>
+</header>
+
+<main id="vrh">
+
+<section class="hero">
+<img class="herobg" src="hero.jpg" alt="">
+<div class="scrim"></div>
+<div class="wrap">
+<div class="herotext">
+<div class="eyebrow">
+<svg width="44" height="10" viewBox="0 0 44 10" aria-hidden="true"><line x1="0" y1="5" x2="16" y2="5" style="stroke: var(--acc)" stroke-width="1"></line><path d="M22 0 27 5 22 10 17 5Z" style="fill: var(--acc)"></path><line x1="28" y1="5" x2="44" y2="5" style="stroke: var(--acc)" stroke-width="1"></line></svg>
+<span style="font-style: italic">ŠID, VOJVODINA</span>
+</div>
+<h1>Izrada nameštaja <br>po meri</h1>
+<p class="lead">Pravimo kuhinje, plakare, kancelarije i <br>TV komode od iverice i medijapana.</p>
+<div class="cta">
+<a class="btn" href="tel:+381604854680">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"></path></svg>
+Pozovite odmah
+</a>
+<a class="btn ghost" href="#upit">Pošaljite upit
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="pravimo">
+<div class="wrap">
+<div class="sechead">
+<div>
+<div class="eyebrow seb"><svg width="44" height="10" viewBox="0 0 44 10" aria-hidden="true"><line x1="0" y1="5" x2="16" y2="5" style="stroke: var(--acc)" stroke-width="1"></line><path d="M22 0 27 5 22 10 17 5Z" style="fill: var(--acc)"></path><line x1="28" y1="5" x2="44" y2="5" style="stroke: var(--acc)" stroke-width="1"></line></svg>Kuhinje · plakari · komode</div>
+<h2>Šta pravimo</h2>
+</div>
+<p class="lead" style="margin-left: auto; text-align: right; font-size: 1.125rem"><span style="color: #b5ac9c; font-weight: 400">Našli ste ono što Vam je potrebno?</span><a class="iglink" href="#upit" style="font-size: 1.125rem"><span>&nbsp;Kontaktirajte nas</span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>&nbsp;</p>
+</div>
+<div class="grid4">
+<article class="card">
+<div class="ph">Fotografija kuhinje<br>iz Instagram objave</div>
+<h3>Kuhinje</h3>
+<p>Donji i gornji elementi sa radnom pločom.</p>
+</article>
+<article class="card">
+<div class="ph">Fotografija plakara<br>iz Instagram objave</div>
+<h3>Plakari</h3>
+<p>Od poda do plafona, sa kliznim ili krilnim vratima.</p>
+</article>
+<article class="card">
+<div class="ph">Fotografija kancelarije<br>iz Instagram objave</div>
+<h3>Kancelarije</h3>
+<p>Radni stolovi, ormari i police.</p>
+</article>
+<article class="card">
+<div class="ph">Fotografija TV komode<br>iz Instagram objave</div>
+<h3>TV komode</h3>
+<p>Niske komode i zidni paneli za televizor.</p>
+</article>
+</div>
+</div>
+</section>
+
+<section class="sec" id="radovi">
+<div class="wrap">
+<div class="sechead">
+<div>
+<div class="eyebrow seb"><svg width="44" height="10" viewBox="0 0 44 10" aria-hidden="true"><line x1="0" y1="5" x2="16" y2="5" style="stroke: var(--acc)" stroke-width="1"></line><path d="M22 0 27 5 22 10 17 5Z" style="fill: var(--acc)"></path><line x1="28" y1="5" x2="44" y2="5" style="stroke: var(--acc)" stroke-width="1"></line></svg>Instagram</div>
+<h2>Naši radovi</h2>
+</div>
+<p class="lead">Završene radove objavljujemo na profilu <a class="iglink" href="https://www.instagram.com/enterijer_markdom/">@enterijer_markdom <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>&nbsp;</p>
+</div>
+<div class="gallery">
+<div class="ph">Instagram objava 1<br>kuhinja</div>
+<div class="ph">Instagram objava 2<br>plakar</div>
+<div class="ph">Instagram objava 3<br>TV komoda</div>
+<div class="ph">Instagram objava 4<br>kancelarija</div>
+<div class="ph">Instagram objava 5<br>detalj fronta</div>
+<div class="ph">Instagram objava 6<br>montaža</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="materijal" style="position: relative">
+<div class="wrap">
+<div class="sechead">
+<div>
+<div class="eyebrow seb"><svg width="44" height="10" viewBox="0 0 44 10" aria-hidden="true"><line x1="0" y1="5" x2="16" y2="5" style="stroke: var(--acc)" stroke-width="1"></line><path d="M22 0 27 5 22 10 17 5Z" style="fill: var(--acc)"></path><line x1="28" y1="5" x2="44" y2="5" style="stroke: var(--acc)" stroke-width="1"></line></svg>Univer i medijapan</div>
+<h2>Materijali</h2>
+</div>
+<p class="lead">Ljudi često pitaju koja je razlika u materijalu. Univer i medijapan koristimo za različite delove, a radnu ploču birate posebno.</p>
+</div>
+<div class="mat">
+<div class="matbox">
+<svg viewBox="0 0 260 90" aria-hidden="true">
+<rect x="2" y="20" width="256" height="50" rx="2" fill="none" style="stroke: var(--acc)" stroke-width="2"></rect>
+<line x1="2" y1="27" x2="258" y2="27" style="stroke: var(--acc)" stroke-width="1.5"></line>
+<line x1="2" y1="63" x2="258" y2="63" style="stroke: var(--acc)" stroke-width="1.5"></line>
+<g style="stroke: var(--acc)" stroke-width="1.5" stroke-linecap="round"><path d="M14 38l9 4M34 50l7-5M52 36l10 3M70 52l8-3M92 40l6 6M112 50l10-2M130 36l7 5M150 48l9 2M172 38l6 6M190 52l10-4M210 38l8 3M232 50l9-4M24 54l6-3M84 33l5 4M142 56l7-2M222 34l6 4"></path></g>
+</svg>
+<h3>Univer (iverica)</h3>
+<p>Presovano drveno iverje sa melaminskim slojem. Lako se seče i buši, a dekor dolazi gotov sa ploče. Od njega idu korpusi, bokovi, police i plakari.</p>
+</div>
+<div class="matbox">
+<svg viewBox="0 0 260 90" aria-hidden="true">
+<rect x="2" y="20" width="256" height="50" rx="2" fill="none" style="stroke: var(--acc)" stroke-width="2"></rect>
+<g style="stroke: var(--acc)" stroke-width="1"><line x1="2" y1="30" x2="258" y2="30"></line><line x1="2" y1="38" x2="258" y2="38"></line><line x1="2" y1="46" x2="258" y2="46"></line><line x1="2" y1="54" x2="258" y2="54"></line><line x1="2" y1="62" x2="258" y2="62"></line></g>
+<path d="M200 20v14a10 10 0 0 0 10 10h48" fill="none" style="stroke: var(--acc)" stroke-width="2"></path>
+</svg>
+<h3>Medijapan (MDF)</h3>
+<p>Gusta ploča od finih drvenih vlakana. Glatka je, pa je farbamo u bilo koju boju sa RAL karte. Od nje idu frontovi sa profilom ili u mat boji.</p>
+</div>
+<div class="matbox">
+<svg viewBox="0 0 260 90" aria-hidden="true">
+<path d="M2 34 30 20h228v26l-28 14H2Z" fill="none" style="stroke: var(--acc)" stroke-width="2"></path>
+<path d="M2 34h228l28-14M230 34v26" fill="none" style="stroke: var(--acc)" stroke-width="2"></path>
+<path d="M40 28c20 2 34-4 58 0s40 4 64-2M120 24c10 4 30 3 46 6" fill="none" style="stroke: var(--acc)" stroke-width="1" stroke-linecap="round"></path>
+</svg>
+<h3>Radna ploča</h3>
+<p>Od univera u dekoru drveta, betona ili kamena, ili od kvarca. Kvarc ne upija tečnost, ne boji se fleka i podnosi visoke temperature.</p>
+</div>
+</div>
+<p class="note"><span class="pm">[PRIMER]</span> Tačne kolekcije dekora univera i kvarca. Upisujemo posle razgovora sa vlasnikom.</p>
+</div>
+</section>
+
+<section class="sec" id="ploca">
+<div class="wrap plgrid" style="position: relative">
+<div>
+<div class="eyebrow seb"><svg width="44" height="10" viewBox="0 0 44 10" aria-hidden="true"><line x1="0" y1="5" x2="16" y2="5" style="stroke: var(--acc)" stroke-width="1"></line><path d="M22 0 27 5 22 10 17 5Z" style="fill: var(--acc)"></path><line x1="28" y1="5" x2="44" y2="5" style="stroke: var(--acc)" stroke-width="1"></line></svg>Krojna lista</div>
+<h2>Svaki komad počinje od <br>jedne ploče</h2>
+<p class="lead" style="margin-top: 1.25rem">Ploča univera ima 2800 × 2070 mm. Iz nje sečemo bokove, dna, police i cokle za vaš element. Ivice koje se vide zatvaramo kant trakom.</p>
+</div>
+<figure class="sheet">
+<div class="sheethead"><span>Krojna lista · ploča 1 od 3</span><span class="pm">[PRIMER]</span></div>
+<svg viewBox="0 0 2800 2070" role="img" aria-label="Ploča iverice 2800 puta 2070 milimetara sa rasporedom delova za kuhinjski element: bokovi, dna, police, traverze i cokla">
+<defs>
+<pattern id="mkh2" width="70" height="70" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="70" stroke="#2A261F" stroke-width="12"></line></pattern>
+</defs>
+<rect x="0" y="0" width="2800" height="2070" fill="#12100D"></rect>
+<rect x="0" y="1064" width="2800" height="1006" fill="url(#mkh2)"></rect>
+<g fill="#1D1A15" stroke="#6E6148" stroke-width="8">
+<rect x="4" y="4" width="716" height="556"></rect>
+<rect x="728" y="4" width="720" height="556"></rect>
+<rect x="1456" y="4" width="564" height="556"></rect>
+<rect x="2028" y="4" width="564" height="516"></rect>
+<rect x="4" y="568" width="716" height="320"></rect>
+<rect x="728" y="568" width="720" height="320"></rect>
+<rect x="1456" y="568" width="564" height="320"></rect>
+<rect x="2028" y="568" width="564" height="300"></rect>
+<rect x="4" y="896" width="560" height="160"></rect>
+<rect x="572" y="896" width="564" height="160"></rect>
+<rect x="1144" y="896" width="1200" height="160"></rect>
+</g>
+<g style="stroke: var(--acc)" stroke-width="26" stroke-linecap="square">
+<line x1="18" y1="18" x2="706" y2="18"></line>
+<line x1="742" y1="18" x2="1434" y2="18"></line>
+<line x1="2042" y1="18" x2="2578" y2="18"></line>
+<line x1="18" y1="582" x2="706" y2="582"></line>
+<line x1="742" y1="582" x2="1434" y2="582"></line>
+<line x1="2042" y1="582" x2="2578" y2="582"></line>
+<line x1="1158" y1="1042" x2="2330" y2="1042"></line>
+</g>
+<g font-family="IBM Plex Sans, sans-serif" fill="#F2ECDF">
+<text x="60" y="190" font-size="104" font-weight="600">Bok</text>
+<text x="60" y="310" font-size="84" fill="#B5AC9C">720 × 560</text>
+<text x="784" y="190" font-size="104" font-weight="600">Bok</text>
+<text x="784" y="310" font-size="84" fill="#B5AC9C">720 × 560</text>
+<text x="1500" y="190" font-size="104" font-weight="600">Dno</text>
+<text x="1500" y="310" font-size="84" fill="#B5AC9C">564 × 560</text>
+<text x="2072" y="190" font-size="104" font-weight="600">Polica</text>
+<text x="2072" y="310" font-size="84" fill="#B5AC9C">564 × 520</text>
+<text x="60" y="730" font-size="96" font-weight="600">Bok gornji</text>
+<text x="60" y="840" font-size="84" fill="#B5AC9C">720 × 320</text>
+<text x="784" y="730" font-size="96" font-weight="600">Bok gornji</text>
+<text x="784" y="840" font-size="84" fill="#B5AC9C">720 × 320</text>
+<text x="1500" y="730" font-size="96" font-weight="600">Dno</text>
+<text x="1500" y="840" font-size="84" fill="#B5AC9C">564 × 320</text>
+<text x="2072" y="730" font-size="96" font-weight="600">Polica</text>
+<text x="2072" y="840" font-size="84" fill="#B5AC9C">564 × 300</text>
+<text x="44" y="1004" font-size="84" font-weight="600">Traverza</text>
+<text x="612" y="1004" font-size="84" font-weight="600">Traverza</text>
+<text x="1184" y="1004" font-size="84" font-weight="600">Cokla 1200 × 100</text>
+<text x="1400" y="1600" font-size="96" fill="#B5AC9C" text-anchor="middle">Ostatak ploče ide u sledeći element</text>
+</g>
+<rect x="4" y="4" width="2792" height="2062" fill="none" stroke="#6E6148" stroke-width="8"></rect>
+</svg>
+<figcaption>
+<span>Ploča iverice 2800 × 2070 mm pre sečenja. Ovako počinje jedan donji i jedan gornji element kuhinje širine 60 cm.</span>
+<span class="legend"><svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" style="stroke: var(--acc)" stroke-width="4"></line></svg>Ivica sa kant trakom</span>
+</figcaption>
+</figure>
+</div>
+</section>
+
+
+
+
+<section class="sec" id="pitanja">
+<div class="wrap">
+<div class="eyebrow seb"><svg width="44" height="10" viewBox="0 0 44 10" aria-hidden="true"><line x1="0" y1="5" x2="16" y2="5" style="stroke: var(--acc)" stroke-width="1"></line><path d="M22 0 27 5 22 10 17 5Z" style="fill: var(--acc)"></path><line x1="28" y1="5" x2="44" y2="5" style="stroke: var(--acc)" stroke-width="1"></line></svg>Pre poziva</div>
+<h2>Česta pitanja</h2>
+<div class="faq">
+<div class="faqcol">
+<details>
+<summary>Koliko košta kuhinja po meri?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p>Cena zavisi od dužine, dekora i okova. <span class="pm">[PRIMER]</span> Donji i gornji elementi od X dinara po dužnom metru.</p>
+</details>
+<details>
+<summary>Koliko čekam od merenja do montaže?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p><span class="pm">[PRIMER]</span> Tri do četiri nedelje za kuhinju srednje veličine.</p>
+</details>
+<details>
+<summary>Da li dolazite van Šida?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p><span class="pm">[PRIMER]</span> Spisak mesta u Sremu i Vojvodini gde izlazimo na merenje.</p>
+</details>
+<details>
+<summary>Mogu li sam da pošaljem mere?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p>Možete, kroz formular ispod. Po tim merama dajemo okvirnu cenu. <span class="pm">[PRIMER]</span> Tačne mere uzimamo na licu mesta pre sečenja.</p>
+</details>
+<details>
+<summary>Šta da izaberem za frontove?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p>Univer dolazi u gotovim dekorima. Medijapan farbamo u bilo koju boju sa RAL karte i može da se gloda. <span class="pm">[PRIMER]</span> Razlika u ceni po kvadratnom metru.</p>
+</details>
+</div>
+<div class="faqcol">
+<details>
+<summary>Od čega može da bude radna ploča?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p>Od univera ili od kvarca. Univer ima veliki izbor dekora i lako se održava. Kvarc je tvrđi, ne upija tečnost i podnosi visoke temperature. <span class="pm">[PRIMER]</span> Razlika u ceni po dužnom metru.</p>
+</details>
+<details>
+<summary>Da li je montaža uključena u cenu?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p><span class="pm">[PRIMER]</span> Montaža je uključena u cenu ili se naplaćuje posebno.</p>
+</details>
+<details>
+<summary>Kako se plaća i da li se daje avans?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p><span class="pm">[PRIMER]</span> Visina avansa i način plaćanja.</p>
+</details>
+<details>
+<summary>Koliko traje garancija?<svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="stroke: var(--acc)" stroke-width="2" aria-hidden="true"><path d="M10 3v14M3 10h14"></path></svg></summary>
+<p><span class="pm">[PRIMER]</span> Garantni rok za nameštaj i okov.</p>
+</details>
+<div class="faqend"><span style="color: #C9A45C">Imate još pitanja?</span><a class="iglink" href="tel:+381604854680"><span>Pozovite nas</span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="upit">
+<div class="wrap upit">
+<div class="upit-info">
+<div class="eyebrow seb"><svg width="44" height="10" viewBox="0 0 44 10" aria-hidden="true"><line x1="0" y1="5" x2="16" y2="5" style="stroke: var(--acc)" stroke-width="1"></line><path d="M22 0 27 5 22 10 17 5Z" style="fill: var(--acc)"></path><line x1="28" y1="5" x2="44" y2="5" style="stroke: var(--acc)" stroke-width="1"></line></svg>Kontakt</div>
+<h2>Pošaljite mere i šta vam treba</h2>
+<p class="lead">Javljamo se na broj koji ostavite. <span class="pm">[PRIMER: rok odgovora]</span></p>
+<a class="bigtel" href="tel:+381604854680"><span>Ili NAS POZOVITE</span>060 485 4680</a>
+<ul class="clist">
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="stroke: var(--acc)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg><div><span>Email</span><a href="mailto:cetojevicnebojsa@gmail.com">cetojevicnebojsa@gmail.com</a></div></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="stroke: var(--acc)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><div><span>Adresa</span><b>Mičurinova 51, 22240 Šid</b></div></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="stroke: var(--acc)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><div><span>Radno vreme</span><b><span class="pm" style="display: inline">[PRIMER]</span> pon - pet 8 - 16 h</b></div></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="stroke: var(--acc)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".8"></circle></svg><div><span>Instagram</span><a href="https://www.instagram.com/enterijer_markdom/">@enterijer_markdom</a></div></li>
+</ul>
+</div>
+
+<form class="upit-form" aria-label="Upit za nameštaj po meri">
+<div class="two">
+<div class="field"><label for="mkd-ime">Ime</label><input id="mkd-ime" type="text" autocomplete="name"></div>
+<div class="field"><label for="mkd-tel">Telefon</label><input id="mkd-tel" type="tel" inputmode="tel" autocomplete="tel"></div>
+</div>
+<div class="two">
+<div class="field"><label for="mkd-mesto">Mesto</label><input id="mkd-mesto" type="text" autocomplete="address-level2"></div>
+<div class="field"><label for="mkd-sta">Šta pravimo</label>
+<div class="selwrap"><select id="mkd-sta"><option>Kuhinja</option><option>Plakar</option><option>Kancelarija</option><option>TV komoda</option><option>Nešto drugo</option></select><svg width="14" height="14" viewBox="0 0 12 12" fill="none" style="stroke: var(--acc)" stroke-width="1.6" aria-hidden="true"><path d="m3 4.5 3 3 3-3"></path></svg></div></div>
+</div>
+<div class="field grow"><label for="mkd-mere">Mere i napomena</label>
+<textarea id="mkd-mere" enterkeyhint="send" placeholder="Zid 320 cm, visina 260 cm, prozor na desnoj strani"></textarea></div>
+<button class="btn" type="button">Pošaljite upit</button>
+</form>
+</div>
+</section>
+
+
+</main>
+
+<footer class="foot">
+<div class="wrap">
+<div class="foottop">
+<a class="logo" href="#vrh" aria-label="Enterijer Markdom, na vrh">
+<svg width="40" height="44" viewBox="0 0 40 44" aria-hidden="true">
+<path d="M20 2 37 11.5v21L20 42 3 32.5v-21Z" fill="none" style="stroke: var(--acc)" stroke-width="1.6"></path>
+<path d="M20 6 33.5 13.5v17L20 38 6.5 30.5v-17Z" fill="none" style="stroke: var(--acc)" stroke-width=".8"></path>
+<text x="20" y="27" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="14" font-weight="700" style="fill: var(--acc)">EM</text>
+</svg>
+<span class="wm"><small>ENTERIJER</small><b>MARKDOM</b><i>NAMEŠTAJ PO MERI</i></span>
+</a>
+<p class="footlead">Kuhinje, plakari, kancelarije i TV komode od univera i medijapana. <span class="pm">[PRIMER: područje rada]</span></p>
+<a class="btn" href="tel:+381604854680">Pozovite 060 485 4680</a>
+</div>
+<div class="footcols">
+<div>
+<h3 class="fh">Nameštaj</h3>
+<ul>
+<li><a href="#pravimo">Kuhinje</a></li>
+<li><a href="#pravimo">Plakari</a></li>
+<li><a href="#pravimo">Kancelarije</a></li>
+<li><a href="#pravimo">TV komode</a></li>
+</ul>
+</div>
+<div>
+<h3 class="fh">Postupak</h3>
+<ul>
+<li><a href="#materijal">Materijali</a></li>
+<li><a href="#ploca">Krojna lista</a></li>
+<li><a href="#radovi">Naši radovi</a></li>
+<li><a href="#pitanja">Česta pitanja</a></li>
+</ul>
+</div>
+<div>
+<h3 class="fh">Kontakt</h3>
+<ul>
+<li><a href="tel:+381604854680">060 485 4680</a></li>
+<li><a href="mailto:cetojevicnebojsa@gmail.com">cetojevicnebojsa@gmail.com</a></li>
+<li><a href="https://www.instagram.com/enterijer_markdom/">@enterijer_markdom</a></li>
+<li><a href="#upit">Pošaljite upit</a></li>
+</ul>
+</div>
+<div>
+<h3 class="fh">Adresa i vreme</h3>
+<p>Mičurinova 51<br>22240 Šid</p>
+<p><span class="pm">[PRIMER]</span> Pon - pet 8 - 16 h<br><span class="pm">[PRIMER]</span> Subota po dogovoru</p>
+</div>
+</div>
+<div class="footbottom">
+<span>Nebojša Ćetojević PR Proizvodnja nameštaja i druge usluge Markdom Šid · PIB 115119225 · MB 68112974</span>
+<span>© 2026 Markdom · <a class="totop" href="#vrh">Na vrh stranice <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a></span>
+</div>
+</div>
+</footer>
+
+
+<div class="bar">
+<a class="btn" href="tel:+381604854680">Pozovite</a>
+<a class="btn ghost" href="#upit">Pošaljite upit</a>
+</div>
+
+</div>
+</body>
+</html>
